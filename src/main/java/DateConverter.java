@@ -22,6 +22,9 @@ public class DateConverter
 
     public static String toString(Date date)
     {
+        if(date == null)
+            return "";
+
         DateFormat format = new SimpleDateFormat(dateFormat);
         String str = format.format(date);
         return str;

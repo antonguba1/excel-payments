@@ -3,11 +3,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class ExcelWriter
 {
 
-    public static void createExcelFile() throws IOException
+    public static void createExcelFile() throws IOException, ParseException
     {
         String[] columns = new String[ConsoleReader.getNumberOfMonths() * 2 + 1];
         columns[0] = "Name";
@@ -65,7 +69,7 @@ public class ExcelWriter
                         .setCellValue(DateConverter.toString(user.getPaymentList().get(j).getDueDate()));
 
                 row.createCell(i + 1)
-                        .setCellValue("");
+                        .setCellValue(dataForTest().get(j));
             }
 
         }
@@ -86,5 +90,16 @@ public class ExcelWriter
 
     }
 
+    public static List<String> dataForTest() throws ParseException
+    {
+        List<String> list = new ArrayList<>();
+        list.add("23/08/2018");
+        list.add("23/09/2018");
+        list.add("23/10/2018");
+        for (int i = 0; i < 2 * ConsoleReader.getNumberOfMonths(); i++)
+            list.add("");
+
+        return list;
+    }
 
 }

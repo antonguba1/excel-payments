@@ -22,7 +22,7 @@ public class ConsoleReader
             }
             case 2:
                 ExcelReader.read(path);
-                ReportGenerator.createReport(ExcelReader.getUserList());
+                ReportGenerator.createReport();
                 break;
             default:
                 System.out.println("Unknown option");

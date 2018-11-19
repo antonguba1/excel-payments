@@ -20,6 +20,11 @@ public class Payment
         return dueDate;
     }
 
+    public Date getActualDate()
+    {
+        return actualDate;
+    }
+
     public void setDueDate(Date dueDate)
     {
         this.dueDate = dueDate;
